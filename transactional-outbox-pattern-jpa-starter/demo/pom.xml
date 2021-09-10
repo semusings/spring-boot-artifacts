@@ -9,8 +9,8 @@
     <properties>
         <springcloud.version>Greenwich.RELEASE</springcloud.version>
         <springboot.version>2.1.6.RELEASE</springboot.version>
-        <maven.compile.source>11</maven.compile.source>
-        <maven.compile.target>11</maven.compile.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -22,10 +22,6 @@
             <groupId>io.github.bhuwanupadhyay</groupId>
             <artifactId>transactional-outbox-pattern-jpa-starter</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>

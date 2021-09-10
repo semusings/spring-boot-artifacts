@@ -13,7 +13,7 @@ spring:
     properties:
       hibernate.jdbc.lob.non_contextual_creation: "true"
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
 server:
   port: 8080
 boot:
