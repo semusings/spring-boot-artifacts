@@ -1,14 +1,16 @@
 package com.example.demo.payment;
 
+import io.github.bhuwanupadhyay.aws.dynamodb.data.Identifiable;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbAttribute;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbIgnore;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 @DynamoDbBean
-public class Payment implements Serializable {
+public class Payment implements Identifiable, Serializable {
 
     private String reference;
 
@@ -40,6 +42,11 @@ public class Payment implements Serializable {
         this.status = status;
     }
 
+    @DynamoDbIgnore
+    public String getId() {
+        return this.reference;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,4 +67,5 @@ public class Payment implements Serializable {
                 ", status=" + status +
                 '}';
     }
+
 }
