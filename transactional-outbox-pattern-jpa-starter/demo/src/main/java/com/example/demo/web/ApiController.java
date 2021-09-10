@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.math.BigDecimal;
 
 @RestController
-public class OutboxController {
+public class ApiController {
 
     private final OutboxPublisher eventPublisher;
     private final OutboxProperties properties;
 
-    public OutboxController(OutboxPublisher eventPublisher, OutboxProperties properties) {
+    public ApiController(OutboxPublisher eventPublisher, OutboxProperties properties) {
         this.eventPublisher = eventPublisher;
         this.properties = properties;
     }
