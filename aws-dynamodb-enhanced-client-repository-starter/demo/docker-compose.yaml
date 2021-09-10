@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=dynamodb
+      - DATA_DIR=/tmp/localstack/data
+      - START_WEB=1
+    volumes:
+      - ./db:/docker-entrypoint-initaws.d

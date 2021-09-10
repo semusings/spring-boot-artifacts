@@ -1,0 +1,39 @@
+package rules
+
+//list any import classes here.
+import io.github.bhuwanupadhyay.drools.payment.PaymentStatus
+import io.github.bhuwanupadhyay.drools.payment.PaymentAction
+import io.github.bhuwanupadhyay.drools.payment.PaymentActionWrapper
+import io.github.bhuwanupadhyay.drools.payment.PaymentStatus
+
+//declare any global variables here
+
+//----------------------
+
+rule "PAYMENT_REVIEW"
+    when
+        $action: PaymentActionWrapper(actionEqualsTo(PaymentAction.REVIEW))
+    then
+        $action.rejectIfStatusNotEmpty();
+        $action.getEntity().setStatus(PaymentStatus.INITIAL);
+end
+
+//----------------------
+
+rule "PAYMENT_APPROVE"
+    when
+        $action: PaymentActionWrapper(actionEqualsTo(PaymentAction.APPROVE))
+    then
+        $action.rejectIfStatusNotMatch(PaymentStatus.INITIAL);
+        $action.getEntity().setStatus(PaymentStatus.APPROVED);
+end
+
+//----------------------
+
+rule "PAYMENT_REJECT"
+    when
+        $action: PaymentActionWrapper(actionEqualsTo(PaymentAction.REJECT))
+    then
+        $action.rejectIfStatusNotMatch(PaymentStatus.INITIAL);
+        $action.getEntity().setStatus(PaymentStatus.REJECTED);
+end

@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: classpath:db/changelog/db.changelog-v1.xml
+  - include:
+      file: classpath:db/changelog/db.changelog-outbox-v1.xml

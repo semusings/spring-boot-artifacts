@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  db:
+    image: postgres:12.1-alpine
+    restart: always
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=root
+    ports:
+      - "5432:5432"
+  rabbitmq:
+    image: bitnami/rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
