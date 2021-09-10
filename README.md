@@ -1,6 +1,6 @@
 # Spring Boot Artifacts
 
-This is collection for spring boot starters project for popular various tools.
+This is collection for spring boot starters project for popular tools.
 
 ## Spring Boot Starters
 
