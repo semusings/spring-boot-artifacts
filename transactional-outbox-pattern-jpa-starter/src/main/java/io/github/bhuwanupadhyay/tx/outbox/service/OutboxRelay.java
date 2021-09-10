@@ -40,7 +40,7 @@ public class OutboxRelay {
 
         info.addCount(sentOutboxes.size());
 
-        outboxRepository.deleteAllInBatch(sentOutboxes);
+        outboxRepository.deleteInBatch(sentOutboxes);
 
         boolean isNotEmpty = !results.isEmpty();
 

@@ -1,0 +1,12 @@
+### Create1
+POST http://localhost:8080/outboxes/fire
+Accept: application/json
+
+### Create2
+POST http://localhost:8080/outboxes/fire
+Accept: application/json
+
+### Watch Outboxes Lists (Run it multiple times to verify all outboxes are published??)
+GET http://localhost:8080/outboxes
+Accept: application/json
+
