@@ -12,7 +12,12 @@ print(){ printf "$@"; }
 # shellcheck disable=SC2059
 println(){ printf "$@\n"; }
 
+build_parent(){
+  $MVN_CMD clean install -pl :spring-boot-artifacts-parent
+}
+
 build(){
+  build_parent
   $MVN_CMD clean package
 }
 

@@ -6,7 +6,7 @@
     <groupId>io.github.bhuwanupadhyay</groupId>
     <artifactId>spring-boot-artifacts-parent</artifactId>
     <version>0.0.1</version>
-    <name>Spring Boot Artifacts</name>
+    <name>Spring Boot Artifacts Parent</name>
     <description>This is collection for spring boot starters project for popular various tools</description>
 
     <url>https://github.com/bhuwanupadhyay/spring-boot-artifacts</url>
