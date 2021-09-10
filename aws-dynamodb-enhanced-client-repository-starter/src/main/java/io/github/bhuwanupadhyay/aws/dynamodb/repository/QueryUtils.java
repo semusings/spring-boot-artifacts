@@ -107,17 +107,17 @@ class QueryUtils {
     }
 
     public static Expression create(Filters filters, PageQuery page) {
-        Optional<String> pageRSQL = page.getRsql();
+//        Optional<String> pageRSQL = page.getRsql();
 
         Filters finalFilters;
 
-        if (pageRSQL.isPresent()) {
-            Node node = new RSQLParser().parse(pageRSQL.get());
-            Filters pageFilters = node.accept(new DynamoDbRSQLVisitor());
-            finalFilters = Filters.combines(filters, pageFilters);
-        } else {
-            finalFilters = filters;
-        }
+//        if (pageRSQL.isPresent()) {
+//            Node node = new RSQLParser().parse(pageRSQL.get());
+//            Filters pageFilters = node.accept(new DynamoDbRSQLVisitor());
+//            finalFilters = Filters.combines(filters, pageFilters);
+//        } else {
+        finalFilters = filters;
+//        }
 
         return create(finalFilters);
     }
