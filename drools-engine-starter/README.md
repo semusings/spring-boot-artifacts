@@ -12,14 +12,14 @@ Library for Drools Engine for KieSession with zero configuration
 <dependency>
     <groupId>io.github.bhuwanupadhyay</groupId>
     <artifactId>drools-engine-starter</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>[version]</version>
 </dependency>
 ```
 
 - Gradle
 
 ```
-implementation 'io.github.bhuwanupadhyay:drools-engine-starter:1.0.0'
+implementation 'io.github.bhuwanupadhyay:drools-engine-starter:[version]'
 ```
 
 ### Customize configurations

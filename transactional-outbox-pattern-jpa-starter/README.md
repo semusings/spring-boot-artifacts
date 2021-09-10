@@ -12,14 +12,14 @@ Library for Transaction Outbox Pattern using Spring Boot JPA with zero configura
 <dependency>
     <groupId>io.github.bhuwanupadhyay</groupId>
     <artifactId>transactional-outbox-pattern-jpa-starter</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>[version]</version>
 </dependency>
 ```
 
 - Gradle
 
 ```
-implementation 'io.github.bhuwanupadhyay:transactional-outbox-pattern-jpa-starter:1.0.0'
+implementation 'io.github.bhuwanupadhyay:transactional-outbox-pattern-jpa-starter:[version]'
 ```
 
 ### Customize configurations

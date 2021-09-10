@@ -12,14 +12,14 @@ Library for AWS DynamoDB Enhanced Client for DynamoRepository with zero configur
 <dependency>
     <groupId>io.github.bhuwanupadhyay</groupId>
     <artifactId>aws-dynamodb-enhanced-client-repository-starter</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>[version]</version>
 </dependency>
 ```
 
 - Gradle
 
 ```
-implementation 'io.github.bhuwanupadhyay:aws-dynamodb-enhanced-client-repository-starter:1.0.0'
+implementation 'io.github.bhuwanupadhyay:aws-dynamodb-enhanced-client-repository-starter:[version]'
 ```
 
 ### Customize configurations
