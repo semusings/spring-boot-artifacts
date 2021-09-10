@@ -31,6 +31,6 @@ GET http://localhost:8080/payments?size=1&page=1
 Accept: application/json
 
 ### List 2 items per page
-GET http://localhost:8080/payments?size=1&page=1
+GET http://localhost:8080/payments?size=2&page=1
 Accept: application/json
 
