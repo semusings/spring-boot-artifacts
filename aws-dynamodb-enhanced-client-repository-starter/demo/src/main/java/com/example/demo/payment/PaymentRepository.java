@@ -5,6 +5,6 @@ import io.github.bhuwanupadhyay.aws.dynamodb.repository.AbstractDynamoRepository
 import org.springframework.stereotype.Repository;
 
 @Repository
-@DynamoRepository(tableName = "payments", entityClass = Payment.class)
+@DynamoRepository(tableName = "Payments", entityClass = Payment.class)
 public class PaymentRepository extends AbstractDynamoRepository<Payment> {
 }

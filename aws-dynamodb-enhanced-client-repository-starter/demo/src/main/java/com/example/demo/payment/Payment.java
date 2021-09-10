@@ -24,7 +24,7 @@ public class Payment implements Identifiable, Serializable {
     }
 
     @DynamoDbPartitionKey
-    @DynamoDbAttribute("reference")
+    @DynamoDbAttribute("Reference")
     public String getReference() {
         return reference;
     }
@@ -33,7 +33,7 @@ public class Payment implements Identifiable, Serializable {
         this.reference = reference;
     }
 
-    @DynamoDbAttribute("status")
+    @DynamoDbAttribute("Status")
     public PaymentStatus getStatus() {
         return status;
     }

@@ -1,8 +1,8 @@
 package com.example.demo.web;
 
-import io.github.bhuwanupadhyay.springboot.outbox.config.OutboxProperties;
-import io.github.bhuwanupadhyay.springboot.outbox.domain.OutboxEvent;
-import io.github.bhuwanupadhyay.springboot.outbox.domain.OutboxPublisher;
+import io.github.bhuwanupadhyay.tx.outbox.config.OutboxProperties;
+import io.github.bhuwanupadhyay.tx.outbox.domain.OutboxEvent;
+import io.github.bhuwanupadhyay.tx.outbox.domain.OutboxPublisher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

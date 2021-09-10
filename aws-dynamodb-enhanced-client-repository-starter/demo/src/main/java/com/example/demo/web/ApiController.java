@@ -2,11 +2,13 @@ package com.example.demo.web;
 
 import com.example.demo.payment.Payment;
 import com.example.demo.payment.PaymentRepository;
+import com.example.demo.payment.PaymentStatus;
 import io.github.bhuwanupadhyay.aws.dynamodb.data.Filters;
+import io.github.bhuwanupadhyay.aws.dynamodb.data.ListPage;
+import io.github.bhuwanupadhyay.aws.dynamodb.data.PageQuery;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -19,20 +21,22 @@ public class ApiController {
     }
 
     @GetMapping("/payments")
-    public ResponseEntity<List<Payment>> getPayments() {
-        return ResponseEntity.ok(repository.scanAll(Filters.create()));
+    public ResponseEntity<ListPage<Payment>> getPayments(PageQuery pageQuery) {
+        return ResponseEntity.ok(repository.scanGrid(Filters.create(), pageQuery));
     }
 
     @PostMapping("/payments")
-    public ResponseEntity<Payment> createPayment(@RequestBody Payment request) {
-        request.setReference(UUID.randomUUID().toString());
-        return ResponseEntity.ok(repository.create(request));
+    public ResponseEntity<Payment> createPayment(@RequestBody PaymentRequest request) {
+        Payment payment = new Payment();
+        payment.setReference(UUID.randomUUID().toString());
+        payment.setStatus(PaymentStatus.valueOf(request.getStatus()));
+        return ResponseEntity.ok(repository.create(payment));
     }
 
     @PutMapping("/payments/{reference}")
-    public ResponseEntity<Payment> updatePayment(@PathVariable("reference") String reference, @RequestBody Payment request) {
+    public ResponseEntity<Payment> updatePayment(@PathVariable("reference") String reference, @RequestBody PaymentRequest request) {
         Payment payment = repository.scanOne(reference);
-        request.setStatus(payment.getStatus());
+        payment.setStatus(PaymentStatus.valueOf(request.getStatus()));
         return ResponseEntity.ok(repository.update(payment));
     }
 

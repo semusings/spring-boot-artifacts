@@ -5,7 +5,7 @@ services:
     ports:
       - "4566:4566"
     environment:
-      - SERVICES=dynamodb
+      - SERVICES=s3,dynamodb
       - DATA_DIR=/tmp/localstack/data
       - START_WEB=1
     volumes:

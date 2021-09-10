@@ -1,21 +1,6 @@
-spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    username: demo
-    password: demo
-    url: jdbc:postgresql://localhost:5432/demo
-  rabbitmq:
-    username: user
-    password: bitnami
-    host: localhost
-    port: 5672
-  jpa:
-    properties:
-      hibernate.jdbc.lob.non_contextual_creation: "true"
-    hibernate:
-      ddl-auto: validate
 server:
   port: 8080
 boot:
-  outbox:
-    max-events-per-polling: 50
+  dynamodb:
+    endpoint-uri: http://localhost:4566
+    region: us-east-1

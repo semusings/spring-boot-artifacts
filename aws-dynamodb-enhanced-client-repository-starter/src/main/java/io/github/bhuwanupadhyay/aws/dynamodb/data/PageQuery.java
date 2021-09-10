@@ -1,6 +1,8 @@
 package io.github.bhuwanupadhyay.aws.dynamodb.data;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import java.util.Objects;
 import java.util.Optional;
 
@@ -14,7 +16,8 @@ public class PageQuery {
     private String sortKey;
     private String sortDirection;
 
-    private PageQuery(Integer page, Integer size, String sort, String rsql) {
+    @JsonCreator
+    public PageQuery(Integer page, Integer size, String sort, String rsql) {
         this.page = Objects.isNull(page) || page < 1 ? 0 : page - 1;
         this.size = Objects.isNull(size) || size < 1 ? 20 : size;
         this.sort = sort;

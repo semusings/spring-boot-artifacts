@@ -3,15 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>demo-transactional-outbox-pattern-jpa-starter</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <springcloud.version>Greenwich.RELEASE</springcloud.version>
         <springboot.version>2.1.6.RELEASE</springboot.version>
-        <java.version>11</java.version>
-        <maven.compile.source>${java.version}</maven.compile.source>
-        <maven.compile.target>${java.version}</maven.compile.target>
+        <maven.compile.source>11</maven.compile.source>
+        <maven.compile.target>11</maven.compile.target>
     </properties>
 
     <dependencies>

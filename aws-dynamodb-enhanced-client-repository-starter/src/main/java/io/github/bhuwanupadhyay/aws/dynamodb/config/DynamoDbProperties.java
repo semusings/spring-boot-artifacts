@@ -1,7 +1,15 @@
 package io.github.bhuwanupadhyay.aws.dynamodb.config;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "zbytes.boot.dynamodb")
+@Setter
+@Getter
+@ConfigurationProperties(prefix = "boot.dynamodb")
 public class DynamoDbProperties {
+
+    private String endpointUri;
+
+    private String region;
 }

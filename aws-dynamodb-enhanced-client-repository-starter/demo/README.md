@@ -15,5 +15,5 @@ mvn spring-boot:run
 3. Test
 
 ```
-curl -X GET http://localhost:8080/payments/fire
+curl -X GET http://localhost:8080/payments
 ```
