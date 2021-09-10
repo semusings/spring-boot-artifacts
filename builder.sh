@@ -1,7 +1,14 @@
 #!/usr/bin/env sh
 set -e
-# shellcheck disable=SC2046
-cd $(dirname "$0")
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+assert_value() {
+  if [ -z "$1" ]; then
+    echo "No args: $2"
+    exit 1
+  fi
+}
 
 MVN_CMD="./mvnw -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -V"
 
@@ -16,17 +23,29 @@ build_parent(){
   $MVN_CMD clean install -f spring-boot-artifacts-parent/pom.xml
 }
 
+deploy_parent(){
+  $MVN_CMD clean deploy -P release -DskipTests=true -f spring-boot-artifacts-parent/pom.xml
+}
+
 build(){
   build_parent
-  $MVN_CMD clean package
+  ## Execute Command on Artifacts
+  while IFS=, read -r artifactId version; do
+    echo "--------------------------------------------------------------------------"
+    echo "$artifactId:$version"
+    echo "--------------------------------------------------------------------------"
+    $MVN_CMD clean package -f "$artifactId"/pom.xml
+  done <"$SCRIPT_DIR/artifacts.csv"
 }
 
-deploy_local(){
-  $MVN_CMD clean install -DskipTests=true
-}
-
-deploy_remote(){
-  $MVN_CMD clean deploy -P release -DskipTests=true
+deploy_artifacts(){
+  ## Execute Command on Artifacts
+  while IFS=, read -r artifactId version; do
+    echo "--------------------------------------------------------------------------"
+    echo "$artifactId:$version"
+    echo "--------------------------------------------------------------------------"
+    $MVN_CMD clean deploy -P release -DskipTests=true -f "$artifactId"/pom.xml
+  done <"$SCRIPT_DIR/artifacts.csv"
 }
 
 config_gpg(){
@@ -66,8 +85,8 @@ EOF
 case $1 in
   "bump") bump_version ;;
   "build") build ;;
-  "deploy_local"|"local") deploy_local ;;
-  "deploy"|"remote") deploy_remote ;;
+  "deploy_parent") deploy_parent ;;
+  "deploy_artifacts") deploy_artifacts ;;
   "config_maven") config_maven ;;
   "config_gpg") config_gpg ;;
   *)
@@ -76,10 +95,8 @@ case $1 in
 
       Where OPTION is one of the following:
       - build
-      - local - deploys generated artifacts locally
-      - remote - deploys generated artifacts into Maven Central
-      - deploy (same as 'remote')
-      - deploy_local (same as 'local')
+      - deploy_parent - deploys generated parent artifacts into Maven Central
+      - deploy_artifacts - deploys generated artifacts into Maven Central
       - config_maven - configure Maven to publish into Sonatype Staging Repository
       - config_gpg - configure GPG key from the env variable
 
