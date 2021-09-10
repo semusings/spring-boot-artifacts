@@ -13,7 +13,7 @@ print(){ printf "$@"; }
 println(){ printf "$@\n"; }
 
 build_parent(){
-  $MVN_CMD clean install -pl :spring-boot-artifacts-parent
+  cd spring-boot-artifacts-parent && $MVN_CMD clean install
 }
 
 build(){
