@@ -13,7 +13,7 @@ print(){ printf "$@"; }
 println(){ printf "$@\n"; }
 
 build_parent(){
-  cd spring-boot-artifacts-parent && $MVN_CMD clean install
+  $MVN_CMD clean install -f spring-boot-artifacts-parent/pom.xml
 }
 
 build(){
