@@ -1,4 +1,4 @@
-package com.example.demo.web;
+package outbox.demo;
 
 import io.github.bhuwanupadhyay.tx.outbox.config.OutboxProperties;
 import io.github.bhuwanupadhyay.tx.outbox.domain.OutboxEvent;

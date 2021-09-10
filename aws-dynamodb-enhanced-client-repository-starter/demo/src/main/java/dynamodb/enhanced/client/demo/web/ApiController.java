@@ -1,8 +1,8 @@
-package com.example.demo.web;
+package dynamodb.enhanced.client.demo.web;
 
-import com.example.demo.payment.Payment;
-import com.example.demo.payment.PaymentRepository;
-import com.example.demo.payment.PaymentStatus;
+import dynamodb.enhanced.client.demo.payment.PaymentRepository;
+import dynamodb.enhanced.client.demo.payment.Payment;
+import dynamodb.enhanced.client.demo.payment.PaymentStatus;
 import io.github.bhuwanupadhyay.aws.dynamodb.data.Filters;
 import io.github.bhuwanupadhyay.aws.dynamodb.data.ListPage;
 import io.github.bhuwanupadhyay.aws.dynamodb.data.PageQuery;

@@ -1,4 +1,4 @@
-package com.example.demo.payment;
+package dynamodb.enhanced.client.demo.payment;
 
 import io.github.bhuwanupadhyay.aws.dynamodb.data.Identifiable;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbAttribute;

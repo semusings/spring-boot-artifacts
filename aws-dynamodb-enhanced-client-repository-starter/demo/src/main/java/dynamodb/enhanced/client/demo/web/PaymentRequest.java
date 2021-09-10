@@ -1,4 +1,4 @@
-package com.example.demo.web;
+package dynamodb.enhanced.client.demo.web;
 
 public class PaymentRequest {
 

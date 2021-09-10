@@ -1,4 +1,4 @@
-package com.example.demo.payment;
+package dynamodb.enhanced.client.demo.payment;
 
 import io.github.bhuwanupadhyay.aws.dynamodb.model.DynamoRepository;
 import io.github.bhuwanupadhyay.aws.dynamodb.repository.AbstractDynamoRepository;
