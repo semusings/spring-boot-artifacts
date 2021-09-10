@@ -28,7 +28,7 @@ public class ApiController {
     @PostMapping("/payments")
     public ResponseEntity<Payment> createPayment(@RequestBody PaymentRequest request) {
         Payment payment = new Payment();
-        payment.setReference(UUID.randomUUID().toString());
+        payment.setId(UUID.randomUUID().toString());
         payment.setStatus(PaymentStatus.valueOf(request.getStatus()));
         return ResponseEntity.ok(repository.create(payment));
     }

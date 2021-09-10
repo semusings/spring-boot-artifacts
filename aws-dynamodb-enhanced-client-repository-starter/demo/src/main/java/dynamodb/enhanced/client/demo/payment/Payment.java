@@ -3,7 +3,6 @@ package dynamodb.enhanced.client.demo.payment;
 import io.github.bhuwanupadhyay.aws.dynamodb.data.Identifiable;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbAttribute;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
-import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbIgnore;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
 
 import java.io.Serializable;
@@ -12,7 +11,7 @@ import java.util.Objects;
 @DynamoDbBean
 public class Payment implements Identifiable, Serializable {
 
-    private String reference;
+    private String id;
 
     private PaymentStatus status;
 
@@ -20,17 +19,17 @@ public class Payment implements Identifiable, Serializable {
     }
 
     public Payment(String reference) {
-        this.reference = reference;
+        this.id = reference;
     }
 
     @DynamoDbPartitionKey
-    @DynamoDbAttribute("Reference")
-    public String getReference() {
-        return reference;
+    @DynamoDbAttribute("Id")
+    public String getId() {
+        return id;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setId(String id) {
+        this.id = id;
     }
 
     @DynamoDbAttribute("Status")
@@ -42,28 +41,24 @@ public class Payment implements Identifiable, Serializable {
         this.status = status;
     }
 
-    @DynamoDbIgnore
-    public String getId() {
-        return this.reference;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Payment payment = (Payment) o;
-        return Objects.equals(reference, payment.reference);
+        return Objects.equals(id, payment.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(reference);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
         return "Payment{" +
-                "reference='" + reference + '\'' +
+                "id='" + id + '\'' +
                 ", status=" + status +
                 '}';
     }

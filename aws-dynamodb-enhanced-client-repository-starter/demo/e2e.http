@@ -15,10 +15,10 @@ Accept: application/json
 {
   "status": "APPROVED"
 }
-> {% client.global.set("reference", response.body.reference); %}
+> {% client.global.set("id", response.body.id); %}
 
 ### Update
-PUT http://localhost:8080/payments/{{reference}}
+PUT http://localhost:8080/payments/{{id}}
 Content-Type: application/json
 Accept: application/json
 
@@ -27,6 +27,6 @@ Accept: application/json
 }
 
 ### List
-GET http://localhost:8080/payments?size=2&page=1&sort=reference,ASC&rsql=status=="REJECTED"
+GET http://localhost:8080/payments?size=2&page=1&sort=id,ASC&rsql=status=="REJECTED"
 Accept: application/json
 
