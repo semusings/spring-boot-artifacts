@@ -32,4 +32,4 @@ jobs:
           GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
 
       - name: Publish to Sonatype Staging Repository
-        run: ./builder.sh remote
+        run: ./builder.sh deploy_artifacts
