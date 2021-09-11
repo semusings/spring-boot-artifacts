@@ -8,11 +8,11 @@
     <parent>
         <groupId>io.github.bhuwanupadhyay</groupId>
         <artifactId>spring-boot-artifacts-parent</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
     </parent>
 
     <artifactId>transactional-outbox-pattern-jpa-starter</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Transactional Outbox Pattern JPA Starter</name>
     <description>Library for Transaction Outbox Pattern using Spring Boot JPA with zero configuration</description>
 

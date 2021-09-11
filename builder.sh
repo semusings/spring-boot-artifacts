@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
-set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(dirname "$0")"
 
 assert_value() {
   if [ -z "$1" ]; then
@@ -30,11 +29,12 @@ deploy_parent(){
 build(){
   build_parent
   ## Execute Command on Artifacts
-  while IFS=, read -r artifactId version; do
+  while IFS=, read -r artifactId tag; do
     echo "--------------------------------------------------------------------------"
-    echo "$artifactId:$version"
+    echo "=> $artifactId:$tag"
     echo "--------------------------------------------------------------------------"
-    $MVN_CMD clean package -f "$artifactId"/pom.xml
+    $MVN_CMD clean versions:set -DnewVersion="$tag" -f "$artifactId/pom.xml"
+    $MVN_CMD package -f "$artifactId/pom.xml"
   done <"$SCRIPT_DIR/artifacts.csv"
 }
 
@@ -42,9 +42,10 @@ deploy_artifacts(){
   ## Execute Command on Artifacts
   while IFS=, read -r artifactId version; do
     echo "--------------------------------------------------------------------------"
-    echo "$artifactId:$version"
+    echo "=> $artifactId:$version"
     echo "--------------------------------------------------------------------------"
-    $MVN_CMD clean deploy -P release -DskipTests=true -f "$artifactId"/pom.xml
+    $MVN_CMD clean versions:set -DnewVersion="$tag" -f "$artifactId/pom.xml"
+    $MVN_CMD deploy -P release -DskipTests=true -f "$artifactId/pom.xml"
   done <"$SCRIPT_DIR/artifacts.csv"
 }
 
