@@ -40,9 +40,9 @@ build(){
 
 deploy_artifacts(){
   ## Execute Command on Artifacts
-  while IFS=, read -r artifactId version; do
+  while IFS=, read -r artifactId tag; do
     echo "--------------------------------------------------------------------------"
-    echo "=> $artifactId:$version"
+    echo "=> $artifactId:$tag"
     echo "--------------------------------------------------------------------------"
     $MVN_CMD clean versions:set -DnewVersion="$tag" -f "$artifactId/pom.xml"
     $MVN_CMD deploy -P release -DskipTests=true -f "$artifactId/pom.xml"
