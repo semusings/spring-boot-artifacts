@@ -1,0 +1,7 @@
+boot:
+  logstash:
+    key-store-location: tmp/trust.pk
+    destination: elk:8080
+spring:
+  application:
+    name: my-service

@@ -1,0 +1,11 @@
+boot:
+  logstash:
+    key-store-location: tmp/trust.pk
+    key-store-password: 1234
+    destination: elk:8080,elk2:8081
+    custom-fields: |-
+      {"appname":"${spring.application.name}", "env": "dev"}
+    queue-size: 500
+spring:
+  application:
+    name: hello
