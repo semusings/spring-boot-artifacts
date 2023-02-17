@@ -12,14 +12,10 @@
 
     <modules>
         <module>spring-boot-artifacts-parent</module>
-
         <module>transactional-outbox-pattern-jpa-starter</module>
-        <module>transactional-outbox-pattern-jpa-starter/demo</module>
-
         <module>drools-engine-starter</module>
-
         <module>aws-dynamodb-enhanced-client-repository-starter</module>
-        <module>aws-dynamodb-enhanced-client-repository-starter/demo</module>
+        <module>logstash-logback-spring-boot-starter</module>
     </modules>
 
 </project>

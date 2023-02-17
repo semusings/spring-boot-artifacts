@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "boot.logstash.enabled",
+      "type": "java.lang.String",
+      "description": "To enable logstash logback logging appender.",
+      "defaultValue": true
+  }
+] }

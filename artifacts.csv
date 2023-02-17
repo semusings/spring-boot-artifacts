@@ -1,3 +1,4 @@
 transactional-outbox-pattern-jpa-starter,1.0.0
 drools-engine-starter,1.0.0
 aws-dynamodb-enhanced-client-repository-starter,1.0.0
+logstash-logback-spring-boot-starter,1.0.4
